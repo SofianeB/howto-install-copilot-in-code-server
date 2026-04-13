@@ -40,7 +40,7 @@ find_compatible_version() {
             \"flags\": 4112
         }")
 
-    echo "$response" | jq -r --arg vscode_version "4.106.3" '
+    echo "$response" | jq -r --arg vscode_version "$vscode_version" '
         .results[0].extensions[0].versions[] |
         select(.version | test("^[0-9]+\\.[0-9]+\\.[0-9]*$")) |
         select(.version | length < 8) |
